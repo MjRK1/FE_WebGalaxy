@@ -1,0 +1,28 @@
+.auth-modal {
+    font-size: 16px;
+}
+
+.auth-modal__name-input {
+    margin-bottom: 20px;
+}
+.name-input__title {
+    margin-bottom: 10px;
+}
+.auth-modal__email-input {
+    margin-bottom: 20px;
+}
+.email-input__title {
+    margin-bottom: 10px;
+}
+.auth-modal__password-input {
+    margin-bottom: 20px;
+}
+.password-input__title {
+    margin-bottom: 10px;
+}
+.ant-modal-header {
+    margin-bottom: 12px !important;
+}
+.ant-modal-title {
+    font-size: 20px !important;
+}

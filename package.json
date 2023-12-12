@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@realize-it/eslint-config": "^0.1.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -11,11 +12,16 @@
     "@types/node": "^16.18.61",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "antd": "^5.12.1",
+    "axios": "^1.6.2",
     "eslint-config-standard-with-typescript": "^40.0.0",
+    "nanoid": "^5.0.4",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "5.0.1",
+    "zustand": "^4.4.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -55,6 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-webpack-plugin": "^4.0.1",
     "husky": "^8.0.0",
     "typescript": "^4.9.5"
   }
