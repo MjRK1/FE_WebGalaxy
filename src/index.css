@@ -12,8 +12,21 @@ body {
   --color-blue3: #5776f3;
   --color-blue2: #6a83f1;
   --color-blue0: #a9b7fd;
-  --color-grey0: #bbbbbb;
-  --color-grey1: #a6a6a6;
+
+  --color-white: #FEFEFE;
+  --color-black: #333333;
+  --color-grey0: #F8F8F8;
+  --color-grey1: #EFEFEF;
+  --color-grey2: #DCDCDC;
+  --color-grey3: #AFAFAF;
+  --color-grey4: #8E8E8E;
+  --color-grey5: #555556;
+
+  --color-green0: #F2FDED;
+  --color-green1: #51E5A1;
+  --color-green2: #039C55;
+
+  --color-red0: #FFEEEE;
 }
 
 code {
@@ -25,16 +38,12 @@ code {
   height: 100vh;
   overflow-y: auto;
 }
-.app-wrapper__header-container {
-  position: sticky;
-  top: 0;
-}
 .app-wrapper::-webkit-scrollbar {
   width: 10px;
   border: 6px solid rgba(0,0,0, 0);
   border-radius: 2px;
 }
 .app-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--color-grey0);
+  background-color: var(--color-grey4);
   border-radius: 20px;
 }

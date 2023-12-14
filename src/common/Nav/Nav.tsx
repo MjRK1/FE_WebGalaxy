@@ -30,7 +30,7 @@ export function Nav() {
           <div
             key={item?.id}
             className="tabs-wrapper__tab"
-            onClick={() => navigator(`/main/products/${item?.name}`)}
+            onClick={() => navigator(`/products/${item?.name}`)}
           >
             {item?.title}
           </div>

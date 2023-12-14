@@ -1,0 +1,4 @@
+.products-list-wrapper__products-list {
+    display: flex;
+    justify-content: center;
+}

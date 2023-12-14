@@ -7,7 +7,7 @@ interface IAuthStore {
 
 const useAuthStore = create<IAuthStore>((set) => ({
   isAuth: null,
-  setAuth: (isAuth) => set({ isAuth }),
+  setAuth: (isAuth) => set(() => ({ isAuth })),
 }));
 
 export default useAuthStore;

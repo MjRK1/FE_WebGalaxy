@@ -104,6 +104,18 @@
 .main-wrapper__image-slider-wrapper {
     margin-bottom: 50px;
 }
+.main-wrapper__image-slider-wrapper > div[dir="ltr"] {
+    width: 50%;
+    margin: 0 auto;
+}
+.react-slideshow-container .nav:first-of-type {
+    left: -150px !important;
+    border-bottom: none;
+}
+.react-slideshow-container .nav:last-of-type {
+    right: -150px !important;
+    border-bottom: none;
+}
 .image-slider-wrapper__title {
     width: 100%;
     display: flex;
@@ -112,9 +124,19 @@
     margin-top: 30px;
     font-size: 44px;
 }
-.image-slider-wrapper__image-slider {
+.each-slide-effect > div {
     display: flex;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 450px;
+}
+
+.each-slide-effect span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
 }
 .image-slider-wrapper_image-container {
     width: 50%;
@@ -129,11 +151,13 @@
 }
 .image-slider-wrapper_image-container img {
     width: 100%;
+    z-index: 10;
     height: 500px;
 }
 .image-slider-wrapper__slider-left-border {
     width: 25%;
     display: flex;
+    z-index: 15;
     align-items: center;
     justify-content: end;
     background-color: white;
@@ -147,6 +171,7 @@
 }
 .image-slider-wrapper__slider-right-border {
     width: 25%;
+    z-index: 15;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -158,4 +183,21 @@
     top: 20px;
     cursor: pointer;
     margin-left: 30px;
+}
+.ant-progress .ant-progress-inner {
+    z-index: -1 !important;
+}
+.ant-progress-line {
+    z-index: -1 !important;
+}
+/* Добавим стили анимации для слайдера */
+.image-slider-wrapper__image-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-slider-wrapper_image-container {
+    flex-shrink: 0;
+    transition: transform 0.5s ease-in-out;
 }

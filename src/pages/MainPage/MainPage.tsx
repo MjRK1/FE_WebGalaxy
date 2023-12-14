@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { nanoid } from 'nanoid';
 import { Progress } from 'antd';
-// @ts-ignore
-import mallImg from './images/mall.jpg';
-// @ts-ignore
-import factoryImg from './images/factory.jpg';
-// @ts-ignore
-import officeImg from './images/office.jpg';
+import { Slide } from 'react-slideshow-image';
 
 const FOR_HEAD = [
   {
@@ -90,40 +85,25 @@ const SLIDER_ITEMS = [
     id: nanoid(3),
     ordering: 1,
     title: 'Большие коммерческие объекты',
-    img: mallImg,
+    img: `${process.env.PUBLIC_URL}/sliderImages/mall.jpg`,
   },
   {
     id: nanoid(3),
     ordering: 2,
     title: 'Оффисы и бизнес-центры',
-    img: officeImg,
+    img: `${process.env.PUBLIC_URL}/sliderImages/office.jpg`,
   },
   {
     id: nanoid(3),
     ordering: 3,
     title: 'Объекты легкой и тяжелой промышленности',
-    img: factoryImg,
+    img: `${process.env.PUBLIC_URL}/sliderImages/factory.jpg`,
   },
 ];
+
 export const MainPage = () => {
-  const [sliderItem, setSliderItem] = useState(SLIDER_ITEMS[0]);
-
-  const handleChangeSliderItem = (type: string) => {
-    if (type === 'LEFT') {
-      if (sliderItem?.ordering === 1) setSliderItem(SLIDER_ITEMS[SLIDER_ITEMS.length - 1]);
-      else {
-        setSliderItem(SLIDER_ITEMS[(sliderItem.ordering - 1) - 1]);
-      }
-    }
-    if (type === 'RIGHT') {
-      if (sliderItem?.ordering === 3) setSliderItem(SLIDER_ITEMS[0]);
-      else {
-        setSliderItem(SLIDER_ITEMS[(sliderItem.ordering - 1) + 1]);
-      }
-    }
-  };
-
   const twoColors = { '0%': '#5dacfa', '100%': '#a1ff7c' };
+  // @ts-ignore
   return (
     <div className="main-page">
       <div className="main-wrapper__about-container">
@@ -188,7 +168,7 @@ export const MainPage = () => {
         </div>
         <div className="effect-description__effect-progresses">
           {PROGRESSES.map((item) => (
-            <div className="progress">
+            <div key={item?.id} className="progress">
               <div className="progress__title">{item?.name}</div>
               <div className="progress_progress-bar">
                 <Progress percent={item?.percent} strokeColor={twoColors} />
@@ -199,24 +179,40 @@ export const MainPage = () => {
       </div>
       <div className="main-wrapper__image-slider-wrapper">
         <div className="image-slider-wrapper__title">
-          Мы используемся в
+          Наши продукты используется в
         </div>
-        <div className="image-slider-wrapper__image-slider">
-          <div className="image-slider-wrapper__slider-left-border">
-            <div className="slider-left-border__left-button" onClick={() => handleChangeSliderItem('LEFT')}>
-              <LeftOutlined />
+
+        {/* <div className="image-slider-wrapper__image-slider"> */}
+        <Slide
+          autoplay={false}
+          prevArrow={<LeftOutlined />}
+          nextArrow={<RightOutlined />}
+        >
+          {SLIDER_ITEMS.map((item) => (
+            <div key={item?.id} className="each-slide-effect">
+              <div style={{ backgroundImage: `url(${item?.img})` }}>
+                <span>{item?.title}</span>
+              </div>
             </div>
-          </div>
-          <div className="image-slider-wrapper_image-container">
-            <div className="image-container__title">{sliderItem?.title}</div>
-            <img alt={sliderItem?.title} src={sliderItem?.img} />
-          </div>
-          <div className="image-slider-wrapper__slider-right-border">
-            <div className="slider-right-border__right-button" onClick={() => handleChangeSliderItem('RIGHT')}>
-              <RightOutlined />
-            </div>
-          </div>
-        </div>
+          ))}
+        </Slide>
+
+        {/*  <div className="image-slider-wrapper__slider-left-border"> */}
+        {/*    <div className="slider-left-border__left-button" onClick={() => handleChangeSliderItem('LEFT')}> */}
+        {/*      <LeftOutlined /> */}
+        {/*    </div> */}
+        {/*  </div> */}
+        {/*  <motion.div */}
+        {/*    className="image-slider-wrapper_image-container" */}
+        {/*  > */}
+        {/*    <div className="image-container__title">{sliderItem?.title}</div> */}
+        {/*    <img alt={sliderItem?.title} src={sliderItem?.img} /> */}
+        {/*  </motion.div> */}
+        {/*  <div className="image-slider-wrapper__slider-right-border"> */}
+        {/*    <div className="slider-right-border__right-button" onClick={() => handleChangeSliderItem('RIGHT')}> */}
+        {/*      <RightOutlined /> */}
+        {/*    </div> */}
+        {/*  </div> */}
       </div>
     </div>
   );

@@ -53,6 +53,11 @@
 		"import/click-events-have-key-events": "off",
 		"jsx-a11y/no-static-element-interactions": "off",
 		"jsx-a11y/click-events-have-key-events": "off",
-		"react/function-component-definition": "off"
+		"react/function-component-definition": "off",
+		"react/require-default-props": "off",
+		"react/no-unescaped-entities": "off",
+		"no-unsafe-optional-chaining": "off",
+		"prefer-template": "off",
+		"react/button-has-type": "off"
 	}
 }

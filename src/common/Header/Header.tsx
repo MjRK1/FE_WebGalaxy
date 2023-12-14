@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, message } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import LogoPng from '../../assets/images/logo.png';
 import useAuthStore from '../../services/zustandStores/authStore';
@@ -8,6 +7,7 @@ import { AuthModal } from '../../commonComponents/AuthModal';
 import { GLX } from '../../services/GLX/GLX';
 import { IAuth } from '../../services/GLX/IGLX';
 import useUserStore from '../../services/zustandStores/userStore';
+import { Cart } from '../../components/Cart/Cart';
 
 export function Header() {
   const user = useUserStore((state) => state?.user);
@@ -69,12 +69,13 @@ export function Header() {
   const handleLogin = (userData: IAuth | undefined) => {
     setLoading(true);
     GLX.login(userData)
-      .then(async (response) => {
-        await setAuth(response?.data?.token);
+      .then((response) => {
+        setAuth(response?.data?.token);
         localStorage.setItem('token', response?.data?.token);
-        await GLX.getMe(response?.data?.token)
+        GLX.getMe(response?.data?.token)
           .then((r) => {
             setUser(r?.data);
+            message.success(`Добро пожаловать, ${r?.data?.name}`);
             localStorage.setItem('user', JSON.stringify(r?.data));
           })
           .catch(() => message.error('Ошибка получения пользователя'));
@@ -84,9 +85,9 @@ export function Header() {
           email: '',
           password: '',
         });
-        message.success(`Добро пожаловать, ${useUserStore.getState().user?.name}`);
       })
       .catch(async (e) => {
+        setLoading(false);
         await message.error(e?.message);
       });
   };
@@ -146,9 +147,7 @@ export function Header() {
         </div>
         <div className="header-container__actions-container">
           {renderAuthButtons()}
-          <div className="actions-container__cart-button">
-            <ShoppingCartOutlined className="cart-button__icon" style={{ fontSize: 35 }} />
-          </div>
+          <Cart />
         </div>
       </div>
       <AuthModal

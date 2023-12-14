@@ -2,6 +2,7 @@
     padding-right: 50px;
     padding-left: 50px;
     display: flex;
+    z-index: 50;
     align-items: center;
     justify-content: space-between;
     height: 100px;
@@ -19,6 +20,8 @@
 }
 .header-title-container {
     font-size: 35px;
+    position: relative;
+    left: 30px;
     cursor: pointer;
     margin: 0 auto;
     color: var(--color-blue3);
@@ -27,6 +30,7 @@
     font-weight: bold;
     transition: .2s;
 }
+
 .header-title-container:hover {
     color: var(--color-blue2)
 }
@@ -61,6 +65,7 @@
 }
 .cart-button__icon {
     transition: .2s;
+    font-size: 30px;
     color: var(--color-blue3);
 }
 .cart-button__icon:hover {

@@ -1,0 +1,17 @@
+.products-page {
+    min-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-left: 50px;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+.products-page__title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.products-page__search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}

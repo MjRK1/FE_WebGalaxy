@@ -10,7 +10,7 @@ interface IAuthModal {
     password: string,
   },
   changeUserData: (type: string, value: string) => void,
-  type: string,
+  type?: string,
   isOpen: boolean,
   okText: string,
   isLoading: boolean,
